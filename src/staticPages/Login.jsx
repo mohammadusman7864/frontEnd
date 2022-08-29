@@ -1,4 +1,4 @@
-
+import axios from "axios"
 import { useState } from "react"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -11,7 +11,7 @@ export default function Login() {
     const [state, setState] = useState(initialState)
     const handleLogin = async () =>{
         try{
-            const user = ("https://mohammadusman.herokuapp.com/login", state)
+            const user = await axios.post("https://mohammadusman.herokuapp.com/login", state)
             console.log(user)
         }catch(e){
             console.log(e)
