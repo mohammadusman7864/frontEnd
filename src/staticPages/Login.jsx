@@ -33,7 +33,7 @@ export default function Login() {
       </Form.Group>
       
       <Button variant="primary" type="submit"  onClick={handleLogin}>
-        Log In
+        LogIn
       </Button>
     </Form>
     </>
