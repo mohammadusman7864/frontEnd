@@ -5,23 +5,25 @@ import Form from 'react-bootstrap/Form';
 
 export default function Login() {
     const initialState = {
-        email: "",
+        username: "",
         password: ""
     }
     const [state, setState] = useState(initialState)
-    const handleLogin = async () =>{
+    const handleLogin = async (e) =>{
+
         try{
-            const user = await axios.post("https://mohammadusman.herokuapp.com/login", state)
+          e.preventDefault();
+            const user = await axios.post("https://mohammadusman.herokuapp.com/users/login", state)
             console.log(user)
-        }catch(e){
-            console.log(e)
+        }catch(er){
+            console.log(er)
         }
     }
     return <><h1>login</h1>
     <Form>
       <Form.Group className="mb-2" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" onChange={e => setState({...state, "email": e.target.value})} />
+        <Form.Control type="text" placeholder="Enter email" onChange={e => setState({...state, "username": e.target.value})} />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
